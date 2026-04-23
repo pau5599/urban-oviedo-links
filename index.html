@@ -268,6 +268,59 @@
     text-transform: uppercase;
   }
   footer a { color: var(--accent); text-decoration: none; }
+
+  /* CTA Promo destacado (lead capture) */
+  .cta-promo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background: linear-gradient(135deg, #ff6a00 0%, #ff3d00 100%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(255, 106, 0, 0.35);
+    animation: ctaPulse 2.5s ease-in-out infinite;
+    transition: transform .15s ease;
+  }
+  .cta-promo:hover, .cta-promo:active { transform: translateY(-2px); }
+  @keyframes ctaPulse {
+    0%, 100% { box-shadow: 0 8px 32px rgba(255, 106, 0, 0.35); }
+    50% { box-shadow: 0 12px 44px rgba(255, 106, 0, 0.6); }
+  }
+  .cta-promo::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.18) 50%, transparent 70%);
+    animation: ctaShine 3.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes ctaShine {
+    0% { transform: translateX(-80%); }
+    100% { transform: translateX(40%); }
+  }
+  .cta-promo .cta-badge {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+    background: rgba(0, 0, 0, 0.22);
+    padding: 4px 12px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    line-height: 1.1;
+  }
+  .cta-promo .cta-text { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .cta-promo .cta-text strong { font-size: 14px; line-height: 1.25; }
+  .cta-promo .cta-text small { font-weight: 500; font-size: 11.5px; opacity: 0.88; }
+  .cta-promo .cta-arrow { font-size: 22px; color: rgba(255,255,255,0.85); }
 </style>
 </head>
 <body>
@@ -288,6 +341,15 @@
         <span>Google</span>
       </div>
     </div>
+
+    <a class="cta-promo" href="https://wa.me/34696641381?text=Hola!%20Vengo%20del%20QR%20y%20quiero%20mi%2010%25%20de%20descuento%20de%20bienvenida%20en%20mi%20primera%20compra%20%F0%9F%9B%8D%EF%B8%8F" target="_blank" rel="noopener" aria-label="10% de descuento en tu primera compra">
+      <span class="cta-badge">−10%</span>
+      <span class="cta-text">
+        <strong>¿Primera compra? Tu regalo te espera</strong>
+        <small>Chatea por WhatsApp y te damos tu código</small>
+      </span>
+      <span class="cta-arrow">›</span>
+    </a>
 
     <nav class="links" aria-label="Enlaces">
       <a class="link" href="https://urbanoviedostore.es/" target="_blank" rel="noopener">
